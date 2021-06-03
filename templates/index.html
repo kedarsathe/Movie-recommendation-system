@@ -1,0 +1,560 @@
+<!doctype html>
+<html lang="en">
+    
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='style.css') }}">
+
+    <script type="text/javascript">
+      var films = {{suggestions|tojson}};
+     </script>
+    <title>CineTime</title>
+    
+  </head>
+
+
+  <body style="   text-transform: capitalize; " onload="detec()">
+   
+    
+    
+    <!-- Home page design start -->
+    <main id="main-content" tabindex="-1" role="main">
+      
+      <div class="l-home-hero">
+          <div class="l-home-hero__gallery">
+                  
+            <div class="home-hero-gallery">
+              <div class="home-hero-gallery__inner js-tiles-container">
+            
+                <div class="home-hero-gallery__left js-hero-tiles-container-left" >
+                  <div class="home-hero-gallery__left-inner js-hero-tiles-left" >
+                      <a class="hero-tile js-hero-tooltip" data-title="Exchange 312" style="cursor:default;"></a>
+                          <div class="hero-tile__inner js-hero-tile" >
+                                  <img class="lazyload"  src="../static/img0.jpg"
+                                  sizes="25vw" alt="Kedar" />
+                          </div>
+                      </a>  
+                      <a style="cursor:default;"class="hero-tile js-hero-tooltip" data-title="Alkaloid Networks" >
+                          <div class="hero-tile__inner js-hero-tile">
+                                      <img class="lazyload" src="../static/img1.jpg"
+                              sizes="25vw" alt="kedar" />
+                          </div>
+                      </a>  
+                      <a style="cursor:default;" class="hero-tile js-hero-tooltip" data-title="Impact Hub" >
+                          <div class="hero-tile__inner js-hero-tile">
+                                      <img class="lazyload" src="../static/img2.jpg"
+                              sizes="25vw" alt="kedar" />
+                          </div>
+                      </a>  
+                      <a style="cursor:default;" class="hero-tile js-hero-tooltip" data-title="Workbar" >
+                          <div class="hero-tile__inner js-hero-tile">
+                                      <img class="lazyload" src="../static/img3.jpg"
+                              sizes="25vw" alt="kedar" />
+                          </div>
+                      </a>  
+                      <a style="cursor:default;" class="hero-tile js-hero-tooltip" data-title="Worksuites" >
+                          <div class="hero-tile__inner js-hero-tile">
+                                      <img class="lazyload" src="../static/img4.jpg"
+                              sizes="25vw" alt="kedar" />
+                          </div>
+                      </a>          
+                      <a style="cursor:default;" class="hero-tile js-hero-tooltip" data-title="Exchange 312" >
+                          <div class="hero-tile__inner js-hero-tile">
+                                      <img class="lazyload" src="../static/img5.jpg"
+                              sizes="25vw" alt="kedar" />
+                          </div>
+                      </a>  
+                      <a style="cursor:default;" class="hero-tile js-hero-tooltip" data-title="Alkaloid Networks" >
+                          <div class="hero-tile__inner js-hero-tile">
+                                      <img class="lazyload" src="../static/img6.jpg"
+                              sizes="25vw" alt="kedar" />
+                          </div>
+                      </a>  
+                      <a style="cursor:default;" class="hero-tile js-hero-tooltip" data-title="Impact Hub" >
+                          <div class="hero-tile__inner js-hero-tile">
+                                      <img class="lazyload" src="../static/img7.jpg"
+                              sizes="25vw" alt="kedar" />
+                          </div>
+                      </a>  
+                      <a style="cursor:default;" class="hero-tile js-hero-tooltip" data-title="Workbar" >
+                          <div class="hero-tile__inner js-hero-tile">
+                                      <img class="lazyload" src="../static/img8.jpg"
+                              sizes="25vw" alt="kedar" />
+                          </div>
+                      </a>  
+                      <a style="cursor:default;" class="hero-tile js-hero-tooltip" data-title="Worksuites" >
+                                  <div class="hero-tile__inner js-hero-tile">
+                                              <img class="lazyload" src="../static/img9.jpg"
+                                      sizes="25vw" alt="kedar" />
+                                  </div>
+                      </a>      
+                  </div>
+                </div>
+            
+                  <div class="home-hero-gallery__right js-hero-tiles-container-right">
+                      <div class="home-hero-gallery__right-inner js-hero-tiles-right">
+                          <a style="cursor:default;" class="hero-tile js-hero-tooltip" data-title="Metro Office" >
+                              <div class="hero-tile__inner js-hero-tile">
+                                          <img class="lazyload" src="../static/img10.jpg"
+                                  sizes="25vw" alt="kedar" />
+                              </div>
+                          </a>  
+                          <a style="cursor:default;" class="hero-tile js-hero-tooltip" data-title="Novel Coworking" >
+                              <div class="hero-tile__inner js-hero-tile">
+                                          <img class="lazyload" src="../static/img11.jpg"
+                                  sizes="25vw" alt="kedar" />
+                              </div>
+                          </a>  
+                          <a style="cursor:default;" class="hero-tile js-hero-tooltip" data-title="Ranch Office" >
+                              <div class="hero-tile__inner js-hero-tile">
+                                          <img class="lazyload" src="../static/img12.jpg"
+                                  sizes="25vw" alt="kedar" />
+                              </div>
+                          </a>  
+                          <a style="cursor:default;" class="hero-tile js-hero-tooltip" data-title="Cross Campus" >
+                              <div class="hero-tile__inner js-hero-tile">
+                                          <img class="lazyload" src="../static/img13.jpg"
+                                  sizes="25vw" alt="kedar" />
+                              </div>
+                          </a>  
+                          <a style="cursor:default;" class="hero-tile js-hero-tooltip" data-title="Building.co" >
+                              <div class="hero-tile__inner js-hero-tile">
+                                          <img class="lazyload" src="../static/img14.jpg"
+                                  sizes="25vw" alt="kedar" />
+                              </div>
+                          </a>          
+                          <a style="cursor:default;" class="hero-tile js-hero-tooltip" data-title="Metro Office" >
+                              <div class="hero-tile__inner js-hero-tile">
+                                          <img class="lazyload" src="../static/img15.jpg"
+                                  sizes="25vw" alt="kedar" />
+                              </div>
+                          </a>  
+                          <a style="cursor:default;" class="hero-tile js-hero-tooltip" data-title="Novel Coworking" >
+                              <div class="hero-tile__inner js-hero-tile">
+                                          <img class="lazyload" src="../static/img16.jpg"
+                                  sizes="25vw" alt="kedar" />
+                              </div>
+                          </a>  
+                          <a style="cursor:default;" class="hero-tile js-hero-tooltip" data-title="Ranch Office" >
+                              <div class="hero-tile__inner js-hero-tile">
+                                          <img class="lazyload" src="../static/img17.jpg"
+                                  sizes="25vw" alt="kedar" />
+                              </div>
+                          </a>  
+                          <a style="cursor:default;" class="hero-tile js-hero-tooltip" data-title="Cross Campus" >
+                              <div class="hero-tile__inner js-hero-tile">
+                                          <img class="lazyload" src="../static/img18.jpg"
+                                  sizes="25vw" alt="kedar" />
+                              </div>
+                          </a>  
+                          <a style="cursor:default;" class="hero-tile js-hero-tooltip" data-title="Building.co" >
+                              <div class="hero-tile__inner js-hero-tile">
+                                          <img class="lazyload" src="../static/img19.jpg"
+                                  
+                                  sizes="25vw" alt="kedar" />
+                              </div>
+                          </a>      
+                      </div>
+                
+                  </div>
+            
+              </div>
+            </div>  
+          </div>
+
+            
+          <div class="l-home-hero__inner">
+            
+              <div class="l-home-hero__text">
+                
+                      
+                  <div class="text-lockup  --xlarge">
+                  
+                        
+                      <h4 class="text-lockup__heading js-underline-container js-toggle-on-scroll" style="font-size:50px;">
+                          Enjoy<br>Your Movies<br>With Our <strong >Recommendation Engine</strong>
+                      </h4>
+                      
+                      <div class="text-lockup__body">
+                          <p>The Time You Enjoy Wasting &nbsp;Is Not Wasted &nbsp;Time.</p>    
+                      </div>
+                  </div>
+                  
+                      <div class="l-home-hero__btn">
+                  
+                          <div class="home-hero-btn">
+                          <a  style="cursor:pointer" class="home-hero-btn__teams">
+                              <span class="home-hero-btn__heading" onclick="myFunction()">Dark Mode</span>
+                               
+                          </a>
+                          <a style="cursor:pointer" class="home-hero-btn__individuals">
+                              <span class="home-hero-btn__heading"  style="color:black" onclick="mynewFunction()">Light Mode</span>
+                              
+                          </a>
+                          </div>
+                      </div>
+                  
+                  </div>
+              </div>
+              
+          </div>
+          
+          
+          
+              
+    </main>
+    <!-- home design end -->
+    <br>
+    <br>
+    <br> 
+    <br>
+    <br>
+    <br>
+    <br>
+    
+      
+    
+    <!-- Search bar -->
+    <div style="padding: top 10px; margin-top:10px">
+        <center><h1  style=" font-family: Basis Grotesque, Helvetica, sans-serif;" >Type Movie Name</h1></center>
+        <div class="form-group ">
+          <input  style="width :75%;  display:block;font-family: 'Newsreader', serif;"type="text" name="movie" id="autoComplete" class="movie form-control rounded-pill w-50 shadow md-5 " placeholder="Type Movie Name Here..." autocomplete="off"  required="required" aria-label="Search"
+            aria-describedby="search-addon"/>
+        </div>
+        <!-- Search button -->
+        <center><div class="form-group">
+            <button style=" display:inline-block;"  type="button" class="btn btn-outline-primary btn-block movie-button">Search</button>
+        </div></center>
+    </div>
+    <!-- loader after entering movie name -->
+    <div id="loader" class="text-center"></div>
+
+  <br>
+  
+    <!-- If movie found -->
+    <center><div class="results">
+      <center>
+        <h2 id="name" class="text-uppercase"></h2>
+      </center>
+    </div>
+    </center>
+    
+    
+    
+    <br>
+    <br>
+    <br>
+    <br>
+    <!-- Image Grid -->
+    <center><h1 class="underlinenew imagegrid">Standing in the spotlight</h1></center>
+    <div class="container-imagegrid" style="text-transform: capitalize; background-color:antiquewhite;">
+        <div class="row-imagegrid">
+            <div class="col-imagegrid">
+                <div class="photo-container-imagegrid" >
+                    <img src="../static/img0-imagegrid.jpg" height="100%" width="100%" alt="">
+                </div>
+                <h3>The Story of the Kelly Gang ( 1906 )</h3>
+                
+                <div class="slide-imagegrid">
+                    <p style="font-size: large;">On Boxing Day 1906 The Story of the Kelly Gang opened at the Athenaeum Theatre in Melbourne. It was the first multi-reel, feature-length film ever produced in the world.</p>
+                </div>
+            </div>
+            <div class="col-imagegrid">
+                <div class="photo-container-imagegrid" >
+                    <img src="../static/img1-imagegrid.jpg" height="100%" width="100%" alt="">
+                </div>
+                <h3>Inception ( 2010 )</h3>
+                <div class="slide-imagegrid">
+                    <p style="font-size: large;">"Inception" is an intense, complex story, but it's always coherent, imaginative, and entertaining. Most of the visual effects are practical.</p>
+                </div>
+            </div>
+            <div class="col-imagegrid">
+                <div class="photo-container-imagegrid" >
+                    <img src="../static/img2-imagegrid.jpg" height="100%" width="100%" alt="">
+                </div>
+                <h3>The Godfather ( 1972 )</h3>
+                <div class="slide-imagegrid">
+                    <p style="font-size:large">Winner of 3 Academy Awards, including Best Picture and Best Adapted Screenplay, The Godfather is one of the most revered movies of all time</p>
+                </div>
+            </div>
+            <div class="col-imagegrid">
+                <div class="photo-container-imagegrid" >
+                    <img src="../static/img4-imagegrid.jpg" height="100%" width="100%" alt="">
+                </div>
+                <h3>Joker ( 2008 )</h3>
+                <div class="slide-imagegrid">
+                    <p style="font-size:large">Joker Is One Of Most Beloved Villen.Heath Ledger pitches in a breath-taking performance.Pitched at the divide between art and industry, poetry and entertainment, “The Dark Knight” goes darker and deeper than any Hollywood movie </p>
+                </div>
+            </div>
+        </div>
+        <div class="row-imagegrid">
+            <div class="col-imagegrid">
+                <div class="photo-container-imagegrid" >
+                    <img src="../static/img5-imagegrid.jpg" height="100%" width="100%" alt="">
+                </div>
+                <h3>The Wolf of Wall Street <br> ( 2013 )</h3>
+                <div class="slide-imagegrid">
+                    <p style="font-size:large">This Wolf makes you wince, think, laugh - and growl.</p>
+                </div>
+            </div>
+            <div class="col-imagegrid">
+                <div class="photo-container-imagegrid" >
+                    <img src="../static/img6-imagegrid.jpg" height="100%" width="100%" alt="">
+                </div>
+                <h3>Titanic ( 1997 )</h3>
+                <div class="slide-imagegrid">
+                    <p style="font-size: large;"> Director Cameron was clearly inspired by the challenge of reproducing the event with a physical verisimilitude and impact inconceivable in the numerous previous film</p>
+                </div>
+            </div>
+            <div class="col-imagegrid">
+                <div class="photo-container-imagegrid" >
+                    <img src="../static/img7-imagegrid.jpg" height="100%" width="100%" alt="">
+                </div>
+                <h3>Harry Potter ( 2001 )</h3>
+                <div class="slide-imagegrid">
+                    <p style="font-size:medium">The start to the Harry Potter film series is filled with visual splendor, valiant heroes, spectacular special effects, and irresistible characters. It's only fair to say that it's truly magical.</p>
+                </div>
+            </div>
+            <div class="col-imagegrid">
+                <div class="photo-container-imagegrid" >
+                    <img src="../static/img8-imagegrid.jpg" height="100%" width="100%" alt="">
+                </div>
+                <h3>Interstellar ( 2014 )</h3>
+                <div class="slide-imagegrid">
+                    <p style="font-size:large;"> Directed and produced by Christopher Nolan.Interstellar makes you feel the great preciousness of time, a resource as valuable as oxygen. Unlike most science fiction which wither out in space, Interstellar rockets home.</p>
+                </div>
+            </div>
+            <div class="col-imagegrid">
+                <div class="photo-container-imagegrid" >
+                    <img src="../static/img9-imagegrid.jpg" height="100%" width="100%" alt="">
+                </div>
+                <h3>tenet ( 2020 )</h3>
+                <div class="slide-imagegrid">
+                    <p style="font-size:large;">Director Christopher Nolan himself writes, "Tenet isn't something built in the past, it's something that will be built in the future</p>
+                </div>
+            </div>
+        </div>
+        <div class="row-imagegrid">
+            <div class="col-imagegrid">
+                <div class="photo-container-imagegrid" >
+                    <img src="../static/img10-imagegrid.jpg" height="100%" width="100%" alt="">
+                </div>
+                <h3>snow white and the seven dwarfs <br> ( 1937 )</h3>
+                <div class="slide-imagegrid">
+                    <p style="font-size: large;">First animated film in world. Snow White and the Seven Dwarfs is a 1937 American animated musical fantasy film produced by Walt Disney Productions </p>
+                </div>
+            </div>
+            <div class="col-imagegrid">
+                <div class="photo-container-imagegrid" >
+                    <img src="../static/img11-imagegrid.jpg" height="100%" width="100%" alt=""> 
+                </div>
+                <h3>twister ( 1996 )</h3>
+                <div class="slide-imagegrid">
+                    <p style="font-size:large;">The first movie commercially released on DVD was Twister.It is a 1996 American epic disaster adventure film </p>
+                </div>
+            </div>
+            <div class="col-imagegrid">
+                <div class="photo-container-imagegrid" >
+                    <img src="../static/img12-imagegrid.jpg" height="100%" width="100%" alt=""> 
+                </div>
+                <h3>pirates of the Caribbean: On Stranger Tides ( 2011 )</h3>
+                <div class="slide-imagegrid">
+                    <p style="font-size:large;">is a 2011 American fantasy swashbuckler film,holding record of most buget film ever.</p>
+                </div>
+            </div>
+            <div class="col-imagegrid">
+                <div class="photo-container-imagegrid" >
+                    <img src="../static/img13-imagegrid.jpg" height="100%" width="100%" alt=""> 
+                </div>
+                <h3>Avatar ( 2009 )</h3>
+                <div class="slide-imagegrid">
+                    <p style="font-size:large;">Fifteen years in the making, James Cameron's  creation is an eye-popping spectacle of conflict between idyllic aliens and greedy humans—saturated with environmental and spiritual themes.</p>
+                </div>
+            </div>
+        </div>
+        <div class="row-imagegrid">
+            <div class="col-imagegrid">
+                <div class="photo-container-imagegrid" >
+                    <img src="../static/img14-imagegrid.jpg" height="100%" width="100%" alt="">
+                </div>
+                <h3>raja harishchandra ( 1913 )</h3>
+                <div class="slide-imagegrid">
+                    <p style="font-size:large;">1913 Indian silent film directed and produced by Dadasaheb Phalke. It is often considered the first full-length Indian feature film.</p>
+                </div>
+            </div>
+            <div class="col-imagegrid">
+                <div class="photo-container-imagegrid" >
+                    <img src="../static/img15-imagegrid.jpg" height="100%" width="100%" alt="">
+                </div>
+                <h3>The Pursuit of Happyness ( 2006 )</h3>
+                <div class="slide-imagegrid">
+                    <p style="font-size: large;">Will Smith and his son, Jaden, bring to life the true story of a father-son family valiantly struggling to step up from the bottom rung of the ladder in 1980s San Francisco.</p>
+                </div>
+            </div>
+            <div class="col-imagegrid">
+                <div class="photo-container-imagegrid" >
+                    <img src="../static/img16-imagegrid.jpg" height="100%" width="100%" alt="">
+                </div>
+                <h3>The Lion King ( 2019 )</h3>
+                <div class="slide-imagegrid">
+                    <p style="font-size: large;">The Lion King is Disney’s latest effort in its quest to remake many of its animated classics. What's new is this film’s astonishing CGI animation style.</p>
+                </div>
+            </div>
+            <div class="col-imagegrid">
+                <div class="photo-container-imagegrid" >
+                    <img src="../static/img17-imagegrid.jpg" height="100%" width="100%" alt="">
+                </div>
+                <h3>The Avengers </h3>
+                <div class="slide-imagegrid">
+                    <p style="font-size: large;">In 2017, The Avengers was featured as one of the 100 greatest films of all time in an Empire magazine poll. Three sequels have been released: Avengers: Age of Ultron (2015), Avengers: Infinity War (2018), and Avengers: Endgame (2019).</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Image grid end -->
+    <br>
+    <br>
+    <br>
+    
+    <br>
+
+    <!-- Team code start-->
+     <div class="section --padded --overflow-hidden smallscreen" >
+        <div class="l-container --narrow">
+            <div class="testimonials-slideshow --big js-testimonials-slideshow">
+                <div class="testimonials-slideshow__slide js-slide">
+                    <div class="l-testimonial --bg-">
+                        <div class="l-testimonial__quote">
+                            <blockquote class="quote  --bg-">
+                                <p class="quote__text">
+                                    We took this Reccomendation system as our project in college. The main idea of this is to suggest movies based on movie had watched. This will help when you find difficult your taste of movies.
+                                </p>
+                                
+                                    
+                                        <div class="quote__author" style="font-size:2rem"> Kedar Sathe</div>
+    
+                                            <div class="quote__author-title" style="font-size:0.8rem;">CSE student</div>
+                                                
+                                            <div class="quote__company-logo">
+                                                         
+                                             
+                                                
+                                            </div>
+                                    
+                            </blockquote>  
+                        </div>
+                        <div class="l-testimonial__img">
+                            <div class="img-container --testimonial --hard-shadow">
+                                            <img class="lazyload" src="../static/kedar.jpeg"
+                                
+                                sizes="auto" alt="Photo of Kedar Sathe" />
+                            </div>
+                        </div>
+                    </div>          
+                </div>
+                
+             <!--For secound testimonial  -->
+            <div class="testimonials-slideshow__slide js-slide">
+                <div class="l-testimonial --bg-none">
+                    <div class="l-testimonial__quote">
+                        <blockquote class="quote  --bg-none">
+                        <p class="quote__text">
+                            We learned many new technologies in order to develop this project. The idea of project was not new but it was like challange to us to make it real.
+                        </p> 
+                            <div class="quote__author" style="font-size:2rem;">Rounak Sancheti</div>
+    
+                            <div class="quote__author-title" style="font-size:0.8rem;">CSE student</div>                                            
+                            
+                                                  
+                        </blockquote>  
+                </div>
+                    <div class="l-testimonial__img">
+                        <div class="img-container --testimonial --hard-shadow">
+                                        <img class="lazyload" src="../static/rounak.jpeg" sizes="auto" alt="Photo of Rounak Sancheti" />
+                            </div>
+                    </div>
+                </div>           
+             </div>       
+            </div>
+        </div>
+    </div>
+        
+    <!-- Team code end -->
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <button
+        type="button"
+        class="btn btn-primary btn-floating btn-lg rounded shadow"
+        id="btn-back-to-top"
+        >Back To Top
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script>
+        function myFunction() {
+           var element = document.body;
+           element.classList.toggle("dark-mode");
+        }
+    </script>
+    <script>
+        function mynewFunction() {
+           var element = document.body;
+           element.classList.toggle("light-mode");
+        }
+    </script>
+    
+        <script>
+        var a = '';
+        var up = document.getElementById("GFG_P");
+  
+        function detec() {
+            var isMobile = window.orientation > -1;
+            alert(isMobile ? 'This website is under development on mobile devices.Please use desktop for better experiance' : 'If you do not see movie name in auto-suggested while typing; just type the movie name and click on "search". You will be good to go even though if you made some typo errors. ');
+        }
+    </script>
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tarekraafat/autocomplete.js@7.2.0/dist/js/autoComplete.min.js"></script>
+    <script type="text/javascript" src="{{url_for('static', filename='autocomplete.js')}}"></script>
+    <script type="text/javascript" src="{{url_for('static', filename='recommend.js')}}"></script>
+    <script type="text/javascript" src="{{url_for('static', filename='homedesign.js')}}"></script>
+  </body>
+  <!-- Footer -->
+<footer class="page-footer font-small blue" style="background-color: antiquewhite;">
+
+    <!-- Copyright -->
+    <div class="footer-copyright text-center py-3" style="color: #000;">© 2021 designed by:
+      <a href="https://www.instagram.com/kedar_sathe_/"> Kedar Sathe</a>
+      &nbsp;
+      <a href="https://www.instagram.com/kedar_sathe_/" target="_blank" rel="noopener noreferrer"><img height="20" width="20" src="../static/instagram.png" alt=""></a>
+      <a href="https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=kedarsathe13@gmail.com&body=my-text" target="_blank" rel="noopener noreferrer"><img height="30" width="30" src="../static/gmail.png" alt=""></a>
+    </div>
+    <!-- Copyright -->
+  
+  </footer>
+  <!-- Footer -->
+</html>

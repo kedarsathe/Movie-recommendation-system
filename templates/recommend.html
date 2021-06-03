@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>NEW</title>
+
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- css  -->
+	<link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='style.css') }}">
+
+</head>
+
+<body style="   text-transform: capitalize;  ">
+	<!-- First movie title -->
+  <center>
+  <div class="results underline" style="font-family: 'Newsreader', serif;">
+	    
+	      <h2 id="name" class="text-uppercase underline">{{title}}</h2>
+	    
+	</div></center>
+  <!-- end title first -->
+	<br>
+<!-- given movie information -->
+<center><div id="mycontent">
+    <div id="mcontent">
+        <div class="poster-lg " style="border-radius: 0;" >
+          <img class="poster shadow rounded " style="margin-left: 50px;" height="700" width="550" src={{poster}}>
+        </div>
+        <div class="poster-sm text-center " style="border-radius: 0">
+          <img class="poster shadow rounded    " style="margin-bottom: 5%;" height="800" width="650" src={{poster}}>
+        </div>
+      <div id="details" class="shadow mb-5 p-3">
+            <br/>
+            <h5 id="title" style="color:#0d6efd; font-family: 'Newsreader', serif;">TITLE:</h5><h6><strong>&nbsp;{{title}}</strong></h6>
+            <br>
+            <h5 id="overview" style="color:#0d6efd; max-width: 85%; font-family: 'Newsreader', serif;">OVERVIEW:</h5><h6 style="font-weight: normal;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{overview}}</h6>
+            <br>
+            <h5 id="vote_average" style="color:#0d6efd; font-family: 'Newsreader', serif;">RATING:</h5><h6 style="font-weight: normal;"> &nbsp;{{vote_average}}/10 ({{vote_count}} votes)</h6>
+            <br>
+            <h5 id="genres" style="color:#0d6efd; font-family: 'Newsreader', serif;">GENRE:</h5><h6 style="font-weight: normal;"> &nbsp;{{genres}}</h6>
+            <br>
+            <h5 id="date" style="color:#0d6efd; font-family: 'Newsreader', serif;">RELEASE DATE:</h5><h6 style="font-weight: normal;"> &nbsp;{{release_date}}</h6>
+            <br>
+            <h5 id="runtime" style="color:#0d6efd; font-family: 'Newsreader', serif;">RUNTIME:</h5><h6 style="font-weight: normal;"> &nbsp;{{runtime}}</h6>
+            <br>
+            <h5 id="status" style="color:#0d6efd; font-family: 'Newsreader', serif;">STATUS:</h5><h6 style="font-weight: normal;"> &nbsp;{{status}}</h6>
+      </div>
+    </div>
+</div></center>
+<!-- given movie information end -->
+<br/>
+	
+<!-- casts posters -->
+  
+  {% if casts|length > 1 %}
+  <div  style="text-transform: capitalize;font-style:oblique">
+    	<center>
+		<h2 class="underlinenew">Top Cast</h2>
+		
+	</center>
+  </div>
+  <hr  style="width: 75%;"/>
+    <div class="movie-content">
+        {% for name, details in casts.items() if not casts.hidden %}
+          <div class=" castcard card rounded shadow   border-light " id="" style="width: 20rem; height:20rem;margin-bottom:3rem;" title="Click to know more about {{name}}" data-toggle="modal" data-target="#{{details[0]}}">   
+            <div class=" imghvr rounded zoom" >
+                <img class=" card-img-top cast-img rounded zoom"  height="360" width="300" id="{{details[0]}}"  alt="{{name}} - profile" src="{{details[2]}}">
+                <figcaption class="fig rounded">
+                  <div >
+                    <h5 class="card-title" style="color:#ffffff;">{{name|title}}</h5>
+                    <h5 class="card-title" style="color:#ffffff;"><span style="font-size: 20px;">Character: {{details[1]|title}}</span></h5>
+                  </div>
+                </figcaption>  
+            </div>
+          </div>
+      {% endfor %}
+    </div>
+{% endif %}
+<br>
+  
+<br>
+<br>
+<br>
+
+
+  <!-- Reviews seaction -->
+    {% if reviews%}
+    <center><h2 style="font-style: oblique;text-transform: capitalize;" class="underlinenew">User Reviews</h2></center>
+     <hr class="mb-5" style="width: 75%;"> 
+      
+      <!-- First Review -->
+      <div style="max-height:20rem"></div>
+      <div id="carouselExampleIndicators" class="carousel slide " data-bs-ride="carousel">
+        <!-- courosel indicators -->
+        <div class="carousel-indicators" >
+          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1" style="background-color: blue;"></button>
+          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2" style="background-color:#0074D9;"></button>
+          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"style="background-color:#0074D9;"></button>
+          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3" aria-label="Slide 4" style="background-color:#0074D9;"></button>
+          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="4" aria-label="Slide 5" style="background-color:#0074D9;"></button>
+
+        </div>
+        <div class="carousel-inner"> 
+        <div class="carousel-item active ">
+        <div class="card shadow  md-5 p-3 zoom d-block w-75 " style="border: none;padding-bottom: 40px;margin-bottom: 40px;cursor: auto;width:75%;" >
+          <div class="card-header ">
+                <h3 class="text-center" scope="col" style="width: 100%;color:#0074D9;font-style: oblique;font-family: 'Newsreader', serif;">Review
+                </h3>
+          </div>
+          <blockquote><div class="card-body " style="background-color:antiquewhite" >
+                            
+                            <blockquote><h6  style="color:#000">" {{reviews[2]}} "</h6></blockquote>
+                            
+                            <footer class="blockquote-footer" style="position: absolute;bottom: 18px;right: 23px; font-size:medium;">Unknown</footer>       
+          </div></blockquote>
+        </div>
+      </div>
+        
+        
+      <!-- Seacond review -->
+      <div class="carousel-item" >
+      <div class="card shadow  md-5 p-3 zoom d-block w-75 " style="border: none;padding-bottom: 40px;margin-bottom: 40px;cursor: auto;width:75%;" >
+          <div class="card-header ">
+                <h3 class="text-center" scope="col" style="width: 100%;color:#0074D9;font-style: oblique;font-family: 'Newsreader', serif;">Review</h3>
+          </div>
+          <blockquote><div class="card-body " style="background-color:antiquewhite" >
+                            
+                            <blockquote><h6  style="color:#000">" {{reviews[1]}} "</h6></blockquote>
+                            
+                            <footer class="blockquote-footer" style="position: absolute;bottom: 18px;right: 23px; font-size:medium;">Unknown</footer>       
+                          
+          </div> </blockquote>
+          </div>
+        </div>
+           <!--Third review  -->
+           <div class="carousel-item" >
+           <div class="card shadow  md-5 p-3 zoom d-block w-75 " style="border: none;padding-bottom: 40px;margin-bottom: 40px;cursor: auto;width:75%;" >
+            <div class="card-header ">
+                  <h3 class="text-center" scope="col" style="width: 100%;color:#0074D9;font-style: oblique;font-family: 'Newsreader', serif;">Review</h3>
+            </div>
+            <blockquote><div class="card-body " style="background-color:antiquewhite" >
+                              
+                              <blockquote><h6  style="color:#000">" {{reviews[0]}} "</h6></blockquote>
+                              
+                              <footer class="blockquote-footer" style="position: absolute;bottom: 18px;right: 23px; font-size:medium;">Unknown</footer>       
+            </div></blockquote>
+          </div>
+        </div>
+        <!-- fourth review -->
+        <div class="carousel-item" >
+          <div class="card shadow  md-5 p-3 zoom d-block w-75 " style="border: none;padding-bottom: 40px;margin-bottom: 40px;cursor: auto;width:75%;" >
+              <div class="card-header ">
+                    <h3 class="text-center" scope="col" style="width: 100%;color:#0074D9;font-style: oblique;font-family: 'Newsreader', serif;">Review</h3>
+              </div>
+              <blockquote><div class="card-body " style="background-color:antiquewhite" >
+                                
+                                <blockquote><h6  style="color:#000">" {{reviews[3]}} "</h6></blockquote>
+                                
+                                <footer class="blockquote-footer" style="position: absolute;bottom: 18px;right: 23px; font-size:medium;">Unknown</footer>       
+                              
+              </div> </blockquote>
+              </div>
+            </div>
+            <!-- fifth review -->
+            <div class="carousel-item" >
+              <div class="card shadow  md-5 p-3 zoom d-block w-75 " style="border: none;padding-bottom: 40px;margin-bottom: 40px;cursor: auto;width:75%;" >
+                  <div class="card-header ">
+                        <h3 class="text-center" scope="col" style="width: 100%;color:#0074D9;font-style: oblique;font-family: 'Newsreader', serif;">Review</h3>
+                  </div>
+                  <blockquote><div class="card-body " style="background-color:antiquewhite" >
+                                    
+                                    <blockquote><h6  style="color:#000">" {{reviews[4]}} "</h6></blockquote>
+                                    
+                                    <footer class="blockquote-footer" style="position: absolute;bottom: 18px;right: 23px; font-size:medium;">Unknown</footer>       
+                                  
+                  </div> </blockquote>
+
+                  </div>
+                </div>
+                
+<!-- controls left and right -->
+        <button class="carousel-control-prev"  type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="false" style="background-color:#0074D9"></span>
+          <span class="visually-hidden" ></span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true" style="background-color:#0074D9"></span>
+          <span class="visually-hidden"></span>
+        </button>
+      </div>
+    </div>
+        
+                        
+    {% else %}
+        <div >
+          <h1 > This movie is not released yet. Stay tuned! </h1>
+        </div>
+    {% endif %}
+<br>
+<!-- reccomended movie posters -->
+  {% if movie_cards_movies %}
+          <center><h2 style="font-style: oblique;text-transform: capitalize;" class="underlinenew">Reccomended Movies For You</h2>
+        <hr  style="width: 75%;"> 
+      <div class="movie-content" style="cursor: default;">
+        
+        <!-- first reccomended poster -->
+       
+          <div class=" rounded shadow  bg-white "  style="width: 21rem; height:25rem;margin:10px;margin-bottom:30px;" title="{{movie_cards_movies[1]}}" data-bs-placement="left" data-bs-toggle="tooltip" >
+            <div class="imghvr rounded zoom " style="cursor: pointer;">
+              <img class="card-img-top rounded zoom" height="400" width="240" data-bs-toggle="tooltip"    style="cursor: pointer;" src={{movie_cards_posters[1]}}>
+              <figcaption class="fig" >
+                  <div class="card-body " >
+                    <h5 class="card-title " style="color:#ffffff;font-size: 20px;" data-bs-toggle="tooltip">{{movie_cards_movies[1]|capitalize}}</h5>
+                    
+                    
+                  </div>
+              </figcaption>
+            </div>  
+          </div>
+        
+          <!-- secound reccomdended poster -->
+          
+          <div class=" rounded shadow  bg-white "  style="width: 21rem; height:25rem;margin:10px;margin-bottom:30px;" title="{{movie_cards_movies[2]}}" data-bs-placement="left" data-bs-toggle="tooltip" >
+            <div class="imghvr rounded zoom " style="cursor: pointer;">
+              <img class="card-img-top rounded zoom" height="400" width="240" data-bs-toggle="tooltip"    style="cursor: pointer;" src={{movie_cards_posters[2]}}>
+              <figcaption class="fig" >
+                  <div class="card-body " >
+                    <h5 class="card-title " style="color:#ffffff;font-size: 20px;" data-bs-toggle="tooltip">{{movie_cards_movies[2]|capitalize}}</h5>
+                    
+                    
+                  </div>
+              </figcaption>
+            </div>  
+          </div>
+        
+          <!-- Third reccomended poster -->
+          
+          <div class=" rounded shadow  bg-white "  style="width: 21rem; height:25rem;margin:10px;margin-bottom:30px;" title="{{movie_cards_movies[3]}}" data-bs-placement="left" data-bs-toggle="tooltip" >
+            <div class="imghvr rounded zoom " style="cursor: pointer;">
+              <img class="card-img-top rounded zoom" height="400" width="240" data-bs-toggle="tooltip"    style="cursor: pointer;" src={{movie_cards_posters[3]}}>
+              <figcaption class="fig" >
+                  <div class="card-body " >
+                    <h5 class="card-title " style="color:#ffffff;font-size: 20px;" data-bs-toggle="tooltip">{{movie_cards_movies[3]|capitalize}}</h5>
+                    
+                    
+                  </div>
+              </figcaption>
+            </div>  
+          </div>
+        
+          <!-- forth reccomended poster -->
+          
+          <div class=" rounded shadow  bg-white "  style="width: 21rem; height:25rem;margin:10px;margin-bottom:30px;" title="{{movie_cards_movies[4]}}" data-bs-placement="left" data-bs-toggle="tooltip" >
+            <div class="imghvr rounded zoom " style="cursor: pointer;">
+              <img class="card-img-top rounded zoom" height="400" width="240" data-bs-toggle="tooltip"    style="cursor: pointer;" src={{movie_cards_posters[4]}}>
+              <figcaption class="fig" >
+                  <div class="card-body " >
+                    <h5 class="card-title " style="color:#ffffff;font-size: 20px;" data-bs-toggle="tooltip">{{movie_cards_movies[4]|capitalize}}</h5>
+                    
+                   
+                  </div>
+              </figcaption>
+            </div>  
+          </div>
+        
+          <!-- fifth reccomended poster -->
+          
+          <div class=" rounded shadow  bg-white "  style="width: 21rem; height:25rem;margin:10px;margin-bottom:30px;" title="{{movie_cards_movies[5]}}" data-bs-placement="left" data-bs-toggle="tooltip" >
+            <div class="imghvr rounded zoom " style="cursor: pointer;">
+              <img class="card-img-top rounded zoom" height="400" width="240" data-bs-toggle="tooltip"    style="cursor: pointer;" src={{movie_cards_posters[5]}}>
+              <figcaption class="fig" >
+                  <div class="card-body " >
+                    <h5 class="card-title " style="color:#ffffff;font-size: 20px;" data-bs-toggle="tooltip">{{movie_cards_movies[5]|capitalize}}</h5>
+                    
+                    
+                  </div>
+              </figcaption>
+            </div>  
+          </div>
+        
+          <!-- sixth reccomended poster -->
+          
+          <div class=" rounded shadow  bg-white "  style="width: 21rem; height:25rem;margin:10px;margin-bottom:30px;" title="{{movie_cards_movies[6]}}" data-bs-placement="left" data-bs-toggle="tooltip" >
+            <div class="imghvr rounded zoom " style="cursor: pointer;">
+              <img class="card-img-top rounded zoom" height="400" width="240" data-bs-toggle="tooltip"    style="cursor: pointer;" src={{movie_cards_posters[6]}}>
+              <figcaption class="fig" >
+                  <div class="card-body " >
+                    <h5 class="card-title " style="color:#ffffff;font-size: 20px;" data-bs-toggle="tooltip">{{movie_cards_movies[6]|capitalize}}</h5>
+                    
+                    
+                  </div>
+              </figcaption>
+            </div>  
+          </div>
+        
+          <!-- seventh reccomended poster -->
+          
+          <div class=" rounded shadow  bg-white "  style="width: 21rem; height:25rem;margin:10px;margin-bottom:30px;" title="{{movie_cards_movies[7]}}" data-bs-placement="left" data-bs-toggle="tooltip" >
+            <div class="imghvr rounded zoom " style="cursor: pointer;">
+              <img class="card-img-top rounded zoom" height="400" width="240" data-bs-toggle="tooltip"    style="cursor: pointer;" src={{movie_cards_posters[7]}}>
+              <figcaption class="fig" >
+                  <div class="card-body " >
+                    <h5 class="card-title " style="color:#ffffff;font-size: 20px;" data-bs-toggle="tooltip">{{movie_cards_movies[7]|capitalize}}</h5>
+                    
+                    
+                  </div>
+              </figcaption>
+            </div>  
+          </div>
+          <!-- eigth reccomended poster -->
+          <div class=" rounded shadow  bg-white "  style="width: 21rem; height:25rem;margin:10px;margin-bottom:30px;" title="{{movie_cards_movies[8]}}" data-bs-placement="left" data-bs-toggle="tooltip" >
+            <div class="imghvr rounded zoom " style="cursor: pointer;">
+              <img class="card-img-top rounded zoom" height="400" width="240" data-bs-toggle="tooltip"    style="cursor: pointer;" src={{movie_cards_posters[8]}}>
+              <figcaption class="fig" >
+                  <div class="card-body " >
+                    <h5 class="card-title " style="color:#ffffff;font-size: 20px;" data-bs-toggle="tooltip">{{movie_cards_movies[8]|capitalize}}</h5>
+                    
+                    
+                  </div>
+              </figcaption>
+            </div>  
+          </div>
+        <!-- ninth reccomended poster -->
+        <div class=" rounded shadow  bg-white "  style="width: 21rem; height:25rem;margin:10px;margin-bottom:30px;" title="{{movie_cards_movies[9]}}" data-bs-placement="left" data-bs-toggle="tooltip" >
+          <div class="imghvr rounded zoom " style="cursor: pointer;">
+            <img class="card-img-top rounded zoom" height="400" width="240" data-bs-toggle="tooltip"    style="cursor: pointer;" src={{movie_cards_posters[9]}}>
+            <figcaption class="fig" >
+                <div class="card-body " >
+                  <h5 class="card-title " style="color:#ffffff;font-size: 20px;" data-bs-toggle="tooltip">{{movie_cards_movies[9]|capitalize}}</h5>
+                  
+                  
+                </div>
+            </figcaption>
+          </div>  
+        </div>
+        <!-- 10th reccomended poster -->
+        <div class=" rounded shadow  bg-white "  style="width: 21rem; height:25rem;margin:10px;margin-bottom:30px;" title="{{movie_cards_movies[10]}}" data-bs-placement="left" data-bs-toggle="tooltip" >
+          <div class="imghvr rounded zoom " style="cursor: pointer;">
+            <img class="card-img-top rounded zoom" height="400" width="240" data-bs-toggle="tooltip"    style="cursor: pointer;" src={{movie_cards_posters[10]}}>
+            <figcaption class="fig" >
+                <div class="card-body " >
+                  <h5 class="card-title " style="color:#ffffff;font-size: 20px;" data-bs-toggle="tooltip"><h2>10th movie</h2>{{movie_cards_movies[10]|capitalize}}</h5>
+                  
+                  
+                </div>
+            </figcaption>
+          </div>  
+        </div>
+        <!-- 11th  -->
+        <div class=" rounded shadow  bg-white "  style="width: 21rem; height:25rem;margin:10px;margin-bottom:30px;" title="{{movie_cards_movies[11]}}" data-bs-placement="left" data-bs-toggle="tooltip" >
+          <div class="imghvr rounded zoom " style="cursor: pointer;">
+            <img class="card-img-top rounded zoom" height="400" width="240" data-bs-toggle="tooltip"    style="cursor: pointer;" src={{movie_cards_posters[11]}}>
+            <figcaption class="fig" >
+                <div class="card-body " >
+                  <h5 class="card-title " style="color:#ffffff;font-size: 20px;" data-bs-toggle="tooltip">{{movie_cards_movies[11]|capitalize}}</h5>
+                  
+                  
+                </div>
+            </figcaption>
+          </div>  
+        </div>
+        <!-- 12th -->
+        <div class=" rounded shadow  bg-white "  style="width: 21rem; height:25rem;margin:10px;margin-bottom:30px;" title="{{movie_cards_movies[12]}}" data-bs-placement="left" data-bs-toggle="tooltip" >
+          <div class="imghvr rounded zoom " style="cursor: pointer;">
+            <img class="card-img-top rounded zoom" height="400" width="240" data-bs-toggle="tooltip"    style="cursor: pointer;" src={{movie_cards_posters[12]}}>
+            <figcaption class="fig" >
+                <div class="card-body " >
+                  <h5 class="card-title " style="color:#ffffff;font-size: 20px;" data-bs-toggle="tooltip">{{movie_cards_movies[12]|capitalize}}</h5>
+                  
+                  
+                </div>
+            </figcaption>
+          </div>  
+        </div>
+        <!-- 13th -->
+        <div class=" rounded shadow  bg-white "  style="width: 21rem; height:25rem;margin:10px;margin-bottom:30px;" title="{{movie_cards_movies[13]}}" data-bs-placement="left" data-bs-toggle="tooltip" >
+          <div class="imghvr rounded zoom " style="cursor: pointer;">
+            <img class="card-img-top rounded zoom" height="400" width="240" data-bs-toggle="tooltip"    style="cursor: pointer;" src={{movie_cards_posters[13]}}>
+            <figcaption class="fig" >
+                <div class="card-body " >
+                  <h5 class="card-title " style="color:#ffffff;font-size: 20px;" data-bs-toggle="tooltip">{{movie_cards_movies[13]|capitalize}}</h5>
+                  
+                  
+                </div>
+            </figcaption>
+          </div>  
+        </div>
+        <!-- 14th -->
+        <div class=" rounded shadow  bg-white "  style="width: 21rem; height:25rem;margin:10px;margin-bottom:30px;" title="{{movie_cards_movies[14]}}" data-bs-placement="left" data-bs-toggle="tooltip" >
+          <div class="imghvr rounded zoom " style="cursor: pointer;">
+            <img class="card-img-top rounded zoom" height="400" width="240" data-bs-toggle="tooltip"    style="cursor: pointer;" src={{movie_cards_posters[14]}}>
+            <figcaption class="fig" >
+                <div class="card-body " >
+                  <h5 class="card-title " style="color:#ffffff;font-size: 20px;" data-bs-toggle="tooltip">{{movie_cards_movies[14]|capitalize}}</h5>
+                  
+                  
+                </div>
+            </figcaption>
+          </div>  
+        </div>
+        <!-- 15th -->
+        <div class=" rounded shadow  bg-white "  style="width: 21rem; height:25rem;margin:10px;margin-bottom:30px;" title="{{movie_cards_movies[15]}}" data-bs-placement="left" data-bs-toggle="tooltip" >
+          <div class="imghvr rounded zoom " style="cursor: pointer;">
+            <img class="card-img-top rounded zoom" height="400" width="240" data-bs-toggle="tooltip"    style="cursor: pointer;" src={{movie_cards_posters[15]}}>
+            <figcaption class="fig" >
+                <div class="card-body " >
+                  <h5 class="card-title " style="color:#ffffff;font-size: 20px;" data-bs-toggle="tooltip">{{movie_cards_movies[15]|capitalize}}</h5>
+                  
+                  
+                </div>
+            </figcaption>
+          </div>  
+        </div>
+        <!-- 16th -->
+        <div class=" rounded shadow  bg-white "  style="width: 21rem; height:25rem;margin:10px;margin-bottom:30px;" title="{{movie_cards_movies[16]}}" data-bs-placement="left" data-bs-toggle="tooltip" >
+          <div class="imghvr rounded zoom " style="cursor: pointer;">
+            <img class="card-img-top rounded zoom" height="400" width="240" data-bs-toggle="tooltip"    style="cursor: pointer;" src={{movie_cards_posters[16]}}>
+            <figcaption class="fig" >
+                <div class="card-body " >
+                  <h5 class="card-title " style="color:#ffffff;font-size: 20px;" data-bs-toggle="tooltip">{{movie_cards_movies[16]|capitalize}}</h5>
+                  
+                  
+                </div>
+            </figcaption>
+          </div>  
+        </div>
+        
+      <!-- For 17th movie but first fetch 17th poster -->
+      
+      </div>     
+  {% endif %}
+
+  
+  <script type="text/javascript" src="{{url_for('static', filename='recommend.js')}}"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+</body>
+</html>
