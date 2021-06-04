@@ -26,8 +26,8 @@
 /* Large devices (laptops/desktops, 992px and up) */
 @media only screen and (min-width: 992px) {
   .kedar-poster{
-    height:700px;
-    width:550px;
+    height:100%;
+    width:100%;
   }
 }
 
